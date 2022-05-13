@@ -1,0 +1,12 @@
+public enum HomeScreenState
+{
+    MAIN,
+    NEW_POPUP,
+    LOAD_POPUP,
+    QUIT_POPUP,
+    GRAPH_SETTING,
+    AUDIO_SETTING,
+    CONTROL_SETTING,
+    INTERFACE_SETTING,
+    SYSTEM_SETTING
+}
