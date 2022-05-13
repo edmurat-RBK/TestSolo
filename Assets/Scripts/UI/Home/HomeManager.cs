@@ -37,7 +37,7 @@ public class HomeManager : Singleton<HomeManager>
                 sectionNewGamePopup.SetActive(false);
                 sectionLoadGamePopup.SetActive(false);
                 sectionQuitGamePopup.SetActive(false);
-                sectionSocialAside.SetActive(false);
+                sectionSocialAside.SetActive(true);
                 sectionSettingsMenu.SetActive(false);
                 sectionGraphicsSettings.SetActive(false);
                 sectionAudioSettings.SetActive(false);
