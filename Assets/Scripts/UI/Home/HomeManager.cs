@@ -11,7 +11,6 @@ public class HomeManager : Singleton<HomeManager>
     public GameObject sectionMainMenu;
     public GameObject sectionHostGame;
     public GameObject sectionJoinGame;
-    public GameObject sectionQuitGamePopup;
     public GameObject sectionSocialAside;
     public GameObject sectionSettingsMenu;
     public GameObject sectionGraphicsSettings;
@@ -20,6 +19,7 @@ public class HomeManager : Singleton<HomeManager>
     public GameObject sectionAccessibilitySettings;
     public GameObject sectionInterfaceSettings;
     public GameObject sectionSystemSettings;
+    public GameObject sectionQuitGamePopup;
 
 
     private void Awake()
