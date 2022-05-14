@@ -9,14 +9,15 @@ public class HomeManager : Singleton<HomeManager>
     public HomeScreenState state = HomeScreenState.MAIN;
 
     public GameObject sectionMainMenu;
-    public GameObject sectionNewGamePopup;
-    public GameObject sectionLoadGamePopup;
+    public GameObject sectionHostGame;
+    public GameObject sectionJoinGame;
     public GameObject sectionQuitGamePopup;
     public GameObject sectionSocialAside;
     public GameObject sectionSettingsMenu;
     public GameObject sectionGraphicsSettings;
     public GameObject sectionAudioSettings;
     public GameObject sectionControlsSettings;
+    public GameObject sectionAccessibilitySettings;
     public GameObject sectionInterfaceSettings;
     public GameObject sectionSystemSettings;
 
@@ -30,148 +31,77 @@ public class HomeManager : Singleton<HomeManager>
 
     public void UpdatePanels()
     {
+        DisableAllPanels();
+
         switch (state)
         {
             case HomeScreenState.MAIN:
                 sectionMainMenu.SetActive(true);
-                sectionNewGamePopup.SetActive(false);
-                sectionLoadGamePopup.SetActive(false);
-                sectionQuitGamePopup.SetActive(false);
-                sectionSocialAside.SetActive(true);
-                sectionSettingsMenu.SetActive(false);
-                sectionGraphicsSettings.SetActive(false);
-                sectionAudioSettings.SetActive(false);
-                sectionControlsSettings.SetActive(false);
-                sectionInterfaceSettings.SetActive(false);
-                sectionSystemSettings.SetActive(false);
+                //sectionSocialAside.SetActive(true);
                 break;
 
-            case HomeScreenState.NEW_POPUP:
-                sectionMainMenu.SetActive(false);
-                sectionNewGamePopup.SetActive(true);
-                sectionLoadGamePopup.SetActive(false);
-                sectionQuitGamePopup.SetActive(false);
-                sectionSocialAside.SetActive(false);
-                sectionSettingsMenu.SetActive(false);
-                sectionGraphicsSettings.SetActive(false);
-                sectionAudioSettings.SetActive(false);
-                sectionControlsSettings.SetActive(false);
-                sectionInterfaceSettings.SetActive(false);
-                sectionSystemSettings.SetActive(false);
+            case HomeScreenState.HOST_GAME:
                 break;
 
-            case HomeScreenState.LOAD_POPUP:
-                sectionMainMenu.SetActive(false);
-                sectionNewGamePopup.SetActive(false);
-                sectionLoadGamePopup.SetActive(true);
-                sectionQuitGamePopup.SetActive(false);
-                sectionSocialAside.SetActive(false);
-                sectionSettingsMenu.SetActive(false);
-                sectionGraphicsSettings.SetActive(false);
-                sectionAudioSettings.SetActive(false);
-                sectionControlsSettings.SetActive(false);
-                sectionInterfaceSettings.SetActive(false);
-                sectionSystemSettings.SetActive(false);
-                break;
-
-            case HomeScreenState.QUIT_POPUP:
-                sectionMainMenu.SetActive(false);
-                sectionNewGamePopup.SetActive(false);
-                sectionLoadGamePopup.SetActive(false);
-                sectionQuitGamePopup.SetActive(true);
-                sectionSocialAside.SetActive(false);
-                sectionSettingsMenu.SetActive(false);
-                sectionGraphicsSettings.SetActive(false);
-                sectionAudioSettings.SetActive(false);
-                sectionControlsSettings.SetActive(false);
-                sectionInterfaceSettings.SetActive(false);
-                sectionSystemSettings.SetActive(false);
+            case HomeScreenState.JOIN_GAME:
                 break;
 
             case HomeScreenState.GRAPH_SETTING:
-                sectionMainMenu.SetActive(false);
-                sectionNewGamePopup.SetActive(false);
-                sectionLoadGamePopup.SetActive(false);
-                sectionQuitGamePopup.SetActive(false);
-                sectionSocialAside.SetActive(false);
                 sectionSettingsMenu.SetActive(true);
                 sectionGraphicsSettings.SetActive(true);
-                sectionAudioSettings.SetActive(false);
-                sectionControlsSettings.SetActive(false);
-                sectionInterfaceSettings.SetActive(false);
-                sectionSystemSettings.SetActive(false);
                 break;
 
             case HomeScreenState.AUDIO_SETTING:
-                sectionMainMenu.SetActive(false);
-                sectionNewGamePopup.SetActive(false);
-                sectionLoadGamePopup.SetActive(false);
-                sectionQuitGamePopup.SetActive(false);
-                sectionSocialAside.SetActive(false);
                 sectionSettingsMenu.SetActive(true);
-                sectionGraphicsSettings.SetActive(false);
                 sectionAudioSettings.SetActive(true);
-                sectionControlsSettings.SetActive(false);
-                sectionInterfaceSettings.SetActive(false);
-                sectionSystemSettings.SetActive(false);
                 break;
 
             case HomeScreenState.CONTROL_SETTING:
-                sectionMainMenu.SetActive(false);
-                sectionNewGamePopup.SetActive(false);
-                sectionLoadGamePopup.SetActive(false);
-                sectionQuitGamePopup.SetActive(false);
-                sectionSocialAside.SetActive(false);
                 sectionSettingsMenu.SetActive(true);
-                sectionGraphicsSettings.SetActive(false);
-                sectionAudioSettings.SetActive(false);
                 sectionControlsSettings.SetActive(true);
-                sectionInterfaceSettings.SetActive(false);
-                sectionSystemSettings.SetActive(false);
+                break;
+
+            case HomeScreenState.ACCESSIBILITY_SETTING:
+                sectionSettingsMenu.SetActive(true);
+                sectionAccessibilitySettings.SetActive(true);
                 break;
 
             case HomeScreenState.INTERFACE_SETTING:
-                sectionMainMenu.SetActive(false);
-                sectionNewGamePopup.SetActive(false);
-                sectionLoadGamePopup.SetActive(false);
-                sectionQuitGamePopup.SetActive(false);
-                sectionSocialAside.SetActive(false);
                 sectionSettingsMenu.SetActive(true);
-                sectionGraphicsSettings.SetActive(false);
-                sectionAudioSettings.SetActive(false);
-                sectionControlsSettings.SetActive(false);
                 sectionInterfaceSettings.SetActive(true);
-                sectionSystemSettings.SetActive(false);
                 break;
 
             case HomeScreenState.SYSTEM_SETTING:
-                sectionMainMenu.SetActive(false);
-                sectionNewGamePopup.SetActive(false);
-                sectionLoadGamePopup.SetActive(false);
-                sectionQuitGamePopup.SetActive(false);
-                sectionSocialAside.SetActive(false);
                 sectionSettingsMenu.SetActive(true);
-                sectionGraphicsSettings.SetActive(false);
-                sectionAudioSettings.SetActive(false);
-                sectionControlsSettings.SetActive(false);
-                sectionInterfaceSettings.SetActive(false);
                 sectionSystemSettings.SetActive(true);
                 break;
 
+            case HomeScreenState.CREDITS: 
+                break;
+
+            case HomeScreenState.QUIT_POPUP:
+                sectionQuitGamePopup.SetActive(true);
+                break;
+
             default:
-                sectionMainMenu.SetActive(false);
-                sectionNewGamePopup.SetActive(false);
-                sectionLoadGamePopup.SetActive(false);
-                sectionQuitGamePopup.SetActive(false);
-                sectionSocialAside.SetActive(false);
-                sectionSettingsMenu.SetActive(false);
-                sectionGraphicsSettings.SetActive(false);
-                sectionAudioSettings.SetActive(false);
-                sectionControlsSettings.SetActive(false);
-                sectionInterfaceSettings.SetActive(false);
-                sectionSystemSettings.SetActive(false);
+                sectionMainMenu.SetActive(true);
                 break;
         }
+    }
+
+    private void DisableAllPanels() {
+        sectionMainMenu.SetActive(false);
+        sectionHostGame.SetActive(false);
+        sectionJoinGame.SetActive(false);
+        sectionQuitGamePopup.SetActive(false);
+        sectionSocialAside.SetActive(false);
+        sectionSettingsMenu.SetActive(false);
+        sectionGraphicsSettings.SetActive(false);
+        sectionAudioSettings.SetActive(false);
+        sectionControlsSettings.SetActive(false);
+        sectionAccessibilitySettings.SetActive(false);
+        sectionInterfaceSettings.SetActive(false);
+        sectionSystemSettings.SetActive(false);
     }
 
     public void ActionMainMenu()
@@ -180,37 +110,14 @@ public class HomeManager : Singleton<HomeManager>
         UpdatePanels();
     }
 
-    public void ActionNewPopup()
-    {
-        state = HomeScreenState.NEW_POPUP;
-        UpdatePanels();
-    }
-
-    public void ActionNewGame()
+    public void ActionHostGame()
     {
         throw new NotImplementedException();
     }
 
-    public void ActionLoadPopup()
-    {
-        state = HomeScreenState.LOAD_POPUP;
-        UpdatePanels();
-    }
-
-    public void ActionLoadGame()
+    public void ActionJoinGame()
     {
         throw new NotImplementedException();
-    }
-
-    public void ActionQuitPopup()
-    {
-        state = HomeScreenState.QUIT_POPUP;
-        UpdatePanels();
-    }
-
-    public void ActionQuitGame()
-    {
-        Application.Quit();
     }
 
     public void ActionGraphSettings()
@@ -230,6 +137,12 @@ public class HomeManager : Singleton<HomeManager>
         state = HomeScreenState.CONTROL_SETTING;
         UpdatePanels();
     }
+    
+    public void ActionAccessibilitySettings()
+    {
+        state = HomeScreenState.ACCESSIBILITY_SETTING;
+        UpdatePanels();
+    }
 
     public void ActionInterfaceSettings()
     {
@@ -246,5 +159,16 @@ public class HomeManager : Singleton<HomeManager>
     public void ActionCredits()
     {
         throw new NotImplementedException();
+    }
+
+    public void ActionQuitPopup()
+    {
+        state = HomeScreenState.QUIT_POPUP;
+        UpdatePanels();
+    }
+
+    public void ActionQuitGame()
+    {
+        Application.Quit();
     }
 }

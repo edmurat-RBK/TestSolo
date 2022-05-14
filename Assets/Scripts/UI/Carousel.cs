@@ -7,27 +7,31 @@ using UnityEngine.UI;
 public class Carousel : MonoBehaviour
 {
     public List<string> carouselSelection;
-    public bool isActive = true;
-    public int defaultIndexSelection = 0;
+    public int indexSelection = 0;
 
-    public Color backgroundActiveColor;
-    public Color backgroundInactiveColor;
+    [Space(20)]
 
     public TextMeshProUGUI label;
     public Button leftButton;
     public Button rightButton;
-    
-    private int selectionIndex = 0;
+
 
     private void Awake()
     {
-        label.text = carouselSelection[selectionIndex];
-        if(selectionIndex == 0)
+        label.text = carouselSelection[indexSelection];
+        
+        if(indexSelection == 0)
         {
-            leftButton.interactable = false;
-            rightButton.interactable = true;
+            if(carouselSelection.Count > 1) {
+                leftButton.interactable = false;
+                rightButton.interactable = true;
+            }
+            else {
+                leftButton.interactable = false;
+                rightButton.interactable = false;
+            }
         }
-        else if(selectionIndex == carouselSelection.Count - 1)
+        else if(indexSelection == carouselSelection.Count - 1)
         {
             leftButton.interactable = true;
             rightButton.interactable = false;
@@ -41,12 +45,12 @@ public class Carousel : MonoBehaviour
 
     public void OnLeftButtonClick()
     {
-        if(selectionIndex > 0)
+        if(indexSelection > 0)
         {
-            selectionIndex -= 1;
-            label.text = carouselSelection[selectionIndex];
+            indexSelection -= 1;
+            label.text = carouselSelection[indexSelection];
 
-            if(selectionIndex == 0)
+            if(indexSelection == 0)
             {
                 leftButton.interactable = false;
             }
@@ -57,12 +61,12 @@ public class Carousel : MonoBehaviour
 
     public void OnRightButtonClick()
     {
-        if (selectionIndex < carouselSelection.Count - 1)
+        if (indexSelection < carouselSelection.Count - 1)
         {
-            selectionIndex += 1;
-            label.text = carouselSelection[selectionIndex];
+            indexSelection += 1;
+            label.text = carouselSelection[indexSelection];
 
-            if (selectionIndex == carouselSelection.Count - 1)
+            if (indexSelection == carouselSelection.Count - 1)
             {
                 rightButton.interactable = false;
             }
